@@ -1,1 +1,59 @@
 /* ini css */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-item {
+  height: 48px;
+  width: 48px;
+  background-image: url(https://picsum.photos/200);
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.nav-container {
+  display: flex;
+}
+
+.nav-item {
+  border: 1px solid;
+  color: black;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.banner-img {
+  border: 1px solid;
+  height: 300px;
+  background-image: url(https://picsum.photos/3000);
+  background-size: cover;
+  background-position: center;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: space-around;
+  text-align: -webkit-center;
+}
+
+.profile-item {
+  height: 100px;
+}
+
+.profile-img {
+  height: 50px;
+  background-image: url(https://picsum.photos/200);
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  width: 50px;
+}
+
+.made-by {
+  text-align: center;
+}
