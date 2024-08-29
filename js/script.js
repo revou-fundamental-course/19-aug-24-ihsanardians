@@ -6,10 +6,7 @@ function replaceName() {
 
 replaceName();
 
-// document.getElementById("gantiNama").addEventListener("click", function () {
-//   replaceName();
-// });
-
+//menampilkan submit form
 function setSenderUI(nama, tanggalLahir, jenisKelamin, pesan) {
   document.getElementById("sender-nama").innerHTML = nama;
   document.getElementById("sender-tanggal-lahir").innerHTML = tanggalLahir;
@@ -17,6 +14,7 @@ function setSenderUI(nama, tanggalLahir, jenisKelamin, pesan) {
   document.getElementById("sender-pesan").innerHTML = pesan;
 }
 
+//memvalidasi form jika kosong
 function validateform() {
   const nama = document.forms["message-form"]["nama"].value;
   const tanggalLahir = document.forms["message-form"]["tanggal-lahir"].value;
@@ -32,24 +30,28 @@ function validateform() {
   return false;
 }
 
-var slideIndex = 1;
-showDivs(slideIndex);
+//auto slide
+let slideIndex = 1;
+showBanner(1);
 
-function plusDivs(n) {
-  showDivs((slideIndex += n));
+function nextSlide(n) {
+  showBanner((slideIndex += n));
 }
 
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("slide-img");
-  if (n > x.length) {
-    slideIndex = 1;
+function showBanner(indexBanner) {
+  let listImage = document.getElementsByClassName("banner-img");
+  if (indexBanner > listImage.length) slideIndex = 1;
+
+  let index = 0;
+  while (index < listImage.length) {
+    listImage[index].style.display = "none";
+    index++;
   }
-  if (n < 1) {
-    slideIndex = x.length;
-  }
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  x[slideIndex - 1].style.display = "block";
+
+  listImage[slideIndex - 1].style.display = "block";
+  console.log(listImage);
 }
+
+setInterval(function () {
+  nextSlide(1);
+}, 3000);

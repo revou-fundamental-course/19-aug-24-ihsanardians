@@ -1,9 +1,12 @@
-/* ini css */
+/* Base Styles */
 * {
   font-family: "Poppins", sans-serif;
-  /* background-color: rgb(241, 241, 246); */
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+/* Navbar */
 nav {
   display: flex;
   align-items: center;
@@ -18,10 +21,9 @@ nav {
 .logo-item {
   height: 48px;
   width: 48px;
-  background-image: url(https://picsum.photos/200);
+  background-image: url(../assets/logo.png);
   background-size: cover;
   border-radius: 50%;
-  background-color: aqua;
 }
 
 .navbar-top {
@@ -31,6 +33,7 @@ nav {
   overflow: hidden;
   position: fixed;
   top: 0;
+  z-index: 1000;
 }
 
 .nav-container {
@@ -55,6 +58,7 @@ a:hover {
   color: brown;
 }
 
+/* Home */
 header {
   text-align: center;
   justify-content: center;
@@ -63,7 +67,7 @@ header {
 article {
   font-family: "Roboto Condensed", sans-serif;
   margin-top: 100px;
-  width: 100%;
+  padding: 0 2rem;
 }
 
 #name {
@@ -76,17 +80,33 @@ article p {
   margin-bottom: 1.5rem;
 }
 
-.banner-img img {
+.banner-img {
   border: 3px solid brown;
   height: 500px;
   background-size: cover;
   background-position: center;
-  margin-left: 2rem;
-  margin-right: 2rem;
   border-radius: 8px;
-  width: 96%;
+  transition: opacity 1s ease-in-out;
+  margin: 1rem 0;
 }
 
+.banner-img.active {
+  opacity: 1;
+}
+
+.img-1 {
+  background-image: url(../assets/banner1.jpg);
+}
+
+.img-2 {
+  background-image: url(../assets/banner2.jpg);
+}
+
+.img-3 {
+  background-image: url(../assets/banner3.jpg);
+}
+
+/* Our Profile */
 #our-profile,
 #achievement {
   padding: 8rem 7% 1.5rem;
@@ -99,28 +119,47 @@ article p {
 .profile-container {
   display: flex;
   justify-content: space-between;
-  text-align: -webkit-center;
+  text-align: center;
   flex-wrap: wrap;
+  gap: 1.5rem;
 }
 
 .profile-item {
-  height: 100px;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  flex: 1 1 calc(33.333% - 1rem);
+  min-width: 200px;
+  text-align: center;
 }
 
 .profile-img {
   height: 100px;
-  background-image: url(https://picsum.photos/100);
   background-size: cover;
   background-position: center;
   border-radius: 50%;
   width: 100px;
+  margin: 0 auto 1rem;
 }
 
+.profile-1 {
+  background-image: url(../assets/guru.jpg);
+}
+.profile-2 {
+  background-image: url(../assets/gor.jpg);
+}
+.profile-3 {
+  background-image: url(../assets/kelas.jpg);
+}
+.profile-4 {
+  background-image: url(../assets/ekskul.jpg);
+}
+.profile-5 {
+  background-image: url(../assets/perpus.jpg);
+}
+
+/* Achievement */
 .profile-achievement {
   margin: 90px auto;
-  width: 70%;
+  width: 100%;
+  max-width: 800px;
 }
 
 .profile-achievement img {
@@ -128,8 +167,15 @@ article p {
   border-radius: 8px;
   border: 3px solid brown;
   margin-right: 15px;
+  max-width: 100px;
 }
 
+.profile-achievement h2,
+.profile-achievement p {
+  text-align: left;
+}
+
+/* Message Us */
 #message {
   padding: 8rem 7% 1.5rem;
 }
@@ -143,7 +189,7 @@ article p {
 }
 
 .form {
-  width: 300px;
+  width: 350px;
   padding: 20px;
   background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -201,6 +247,7 @@ form input[type="submit"]:hover {
   font-weight: bold;
 }
 
+/* footer */
 footer {
   background-color: #333;
   color: #fff;
@@ -223,17 +270,96 @@ footer {
 }
 
 /* Media Queries */
-@media only screen and (max-width: 600px) {
-  .navbar-top {
-    flex-direction: column;
-  }
 
+/* Tablet */
+@media (max-width: 768px) {
   .nav-container {
-    width: 100%;
+    flex-direction: column;
+    padding-right: 0;
+    padding-top: 1rem;
+  }
+
+  .nav-item {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .banner-img {
+    height: 250px;
+  }
+
+  .profile-container {
     flex-direction: column;
   }
 
-  .logo {
-    margin-bottom: 14px;
+  .profile-item {
+    flex: 1 1 100%;
+  }
+
+  .profile-achievement img {
+    max-width: 80px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .logo-item {
+    height: 36px;
+    width: 36px;
+  }
+
+  .navbar-top {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .banner-img {
+    height: 200px;
+  }
+
+  .form-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  #our-profile,
+  #achievement {
+    padding: 6rem 2% 1.5rem;
+  }
+
+  #our-profile h1,
+  #achievement h1 {
+    font-size: 24px;
+  }
+
+  .profile-container {
+    flex-direction: column;
+  }
+
+  .profile-item {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .profile-container {
+    gap: 2rem;
+  }
+
+  .profile-item {
+    flex: 1 1 calc(25% - 2rem);
+  }
+
+  .profile-achievement {
+    width: 60%;
+  }
+
+  .form {
+    max-width: 500px;
+  }
+
+  .output-form {
+    max-width: 500px;
   }
 }
